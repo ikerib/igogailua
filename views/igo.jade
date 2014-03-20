@@ -2,5 +2,5 @@ extends layout
 block content
     h1 Aukeratu fitxategi bat eta eman igo! botoiari
         form(method="POST", action="/doUpload", enctype="multipart/form-data")
-            input(type='file', name='uploadFile', id='fileUploader')
+            input(type='file', name='uploadFile', id='fileUploader', multiple="multiple")
             input.button2(type='submit', value='Igo!', id='fileUploadButton')
