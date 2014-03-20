@@ -3,9 +3,6 @@ var util = require('util');
 
 var fileName;
 
-/**
- *  do upload
- */
 function doUpload(req, res) {
     fileName = req.files.uploadFile.name;
     req.setEncoding("binary");
@@ -19,25 +16,17 @@ function doUpload(req, res) {
             fs.unlinkSync(req.files.uploadFile.path);
             if(error) {
                 res.send(JSON.stringify({
-                    error: 'Error occurred in File Upload'
+                    error: 'Arazoa egon da fitxategia igotzerakoan.'
                 }));
                 return;
             }
             upload_complete(req, res);
         }
     );
-
-
 }
-
 
 function upload_complete(req,res) {
-    console.log("Request complete for upload and calling the dot net service for Parsing...................................");
-    res.send("FILE UPLOAD COMPLETED ..................");
+    res.send("Fitxategia zuzen igo da ..................");
 }
-
-
-
-
 
 exports.doUpload=doUpload;

@@ -5,7 +5,6 @@
 
 var express = require('express');
 var routes = require('./routes');
-var user = require('./routes/user');
 var igo = require('./routes/igo');
 var http = require('http');
 var path = require('path');
@@ -23,7 +22,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());
 app.use(express.logger('dev'));
-app.use(express.bodyParser({uploadDir: './public/images/'}));
+//app.use(express.bodyParser({uploadDir: './public/images/'}));
+app.use(express.bodyParser());
 app.use(express.multipart());
 app.use(express.json());
 app.use(express.urlencoded());
@@ -37,10 +37,9 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
 app.get('/igo', igo.igo);
 app.post('/doUpload', igo.doUpload);
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+  console.log('Zerbitzaria ' + app.get('port') + ' portuan entzuten.');
 });
