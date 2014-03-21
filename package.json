@@ -10,6 +10,7 @@
     "jade": "*",
     "multipart":"*",
       "posix":"*",
-      "nib":"*"
+      "nib":"*",
+      "archiver":"*"
   }
 }
